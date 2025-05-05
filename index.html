@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Master Control Panel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eaedf0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 40px;
+            color: #444;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 10px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: rgb(13, 83, 129);
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        form {
+            margin-top: 30px;
+            background: #fff;
+            padding: 20px;
+            width: fit-content;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 15px;
+            background-color:rgb(13, 83, 129);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(13, 83, 129);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖥️ Master Device Control Panel</h1>
+
+    <h3>📜 Connected Snaps:</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>IP Address</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Addr}}</td>
+        </tr>
+        {{else}}
+        <tr><td colspan="2">No Snaps Connected</td></tr>
+        {{end}}
+    </table>
+
+    <form method="POST" action="/send">
+        <label>Enter Snap ID to shutdown:</label>
+        <input type="text" name="id" placeholder="e.g. 1" required />
+        <input type="submit" value="Shutdown" />
+    </form>
+
+
+</body>
+</html>
