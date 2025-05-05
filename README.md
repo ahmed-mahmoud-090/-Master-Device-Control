@@ -26,9 +26,9 @@ A simple **Go-based distributed system** where a **Master** device can manage an
 
 ```bash
 ├── Master/
-│   ├── main.go           # Main logic for the Master (TCP server + Web server)
-│   ├── index.html        # Web GUI template
-│   └── images/           # Folder to store uploaded images (optional)
+│   ├── main.go        # Contains the Web GUI, TCP server, and HTML integration
+│   ├── master.go      # Contains reusable static logic for TCP handling or utilities
+│   ├── index.html     # Web GUI template (HTML page)
 │
 ├── Snap/
 │   └── main.go           # Client logic (connects to Master and listens for commands)
