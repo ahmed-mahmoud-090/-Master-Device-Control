@@ -1,6 +1,9 @@
 # Snap Control System
 
 A simple **Go-based distributed system** where a **Master** device can manage and control multiple **Snap** devices over TCP. The system also includes a web-based GUI to monitor and control connected Snaps in real time.
+![Alt Text](![Screenshot (87)](https://github.com/user-attachments/assets/6212392e-78c1-491c-a17f-a96157cac075)
+)
+
 
 ## 🚀 Features
 
